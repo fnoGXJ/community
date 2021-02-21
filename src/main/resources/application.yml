@@ -1,2 +1,13 @@
 server:
   port: 8885
+github:
+  client:
+    id: Iv1.13d2ae00b09a774c
+    secret: 2b8ddd3e0c8950222adc770a972b96ef1779dc1d
+    uri: http://localhost:8885/callback
+spring:
+  datasource:
+    username: root
+    password: xiaojianguo115/
+    url: jdbc:mysql://localhost:3306/fno?useUnicode=true&useSSL=false&characterEncoding=UTF-8&serverTimezone=GMT%2B8
+    driver-class-name: com.mysql.cj.jdbc.Driver
