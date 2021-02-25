@@ -8,24 +8,26 @@ import java.util.Map;
 public class Solution {
     public static void main(String[] args) {
         Solution s = new Solution();
-        System.out.println(s.maximumScore(new int[]{1, 2, 3}, new int[]{3, 2, 1}));
+        s.findNthDigit(1000000000);
     }
-    public int maximumScore(int[] nums, int[] multipliers) {
-        int m = multipliers.length;
-        int[][] dp = new int[m+1][m+1];
-        int max = 0;
-        for(int i = 0; i <= m; i++){
-            for(int j = 0; j <= m-i; j++){
-                if(i == 0 && j == 0) continue;
-                if(i == 0) dp[i][j] = dp[0][j-1] + multipliers[i+j-1]*nums[nums.length-j];
-                else if(j == 0) dp[i][j] = dp[i-1][0] + multipliers[i+j-1]*nums[i-1];
-                else{
-                    dp[i][j] = Math.max(dp[i-1][j]+multipliers[i+j-1]*nums[i-1],dp[i][j-1]+multipliers[i+j-1]*nums[nums.length-j]);
-                }
-                if(i+j == m) max = Math.max(max,dp[i][j]);
+    public int findNthDigit(int n) {
+        int init = 9, mul = 1,now = 0;
+        while(n - init*mul > 0){
+            n -= init*mul;
+            now += init;
+            init *=10;
+            mul++;
+        }
+        int bit = n % mul;
+        int num = now + (bit == 0 ? n/mul : n/mul+1);
+        if(bit == 0) return num%10;
+        else{
+            while(bit < mul){
+                num/=10;
+                bit++;
             }
         }
-        return max;
+        return num%10;
     }
 }
 
