@@ -14,3 +14,9 @@ spring:
 mybatis:
   configuration:
     map-underscore-to-camel-case: true
+  type-aliases-package: com.fno.community.model
+  mapper-locations: classpath:mapper/*.xml
+elasticsearch:
+  hostname: 127.0.0.1
+  port: 9200
+  scheme: http

@@ -9,15 +9,24 @@
     <script src="/js/jquery-3.4.1.min.js"></script>
     <script src="/js/bootstrap.min.js" type="application/javascript"></script>
 </head>
+<script type="text/javascript">
+    window.onload = function () {
+        var item = window.localStorage.getItem("closeable");
+        if(item){
+            window.close();
+            window.localStorage.removeItem("closeable");
+        }
+    }
+</script>
 <body>
 
 <div th:insert="~{navigation :: nav}"></div>
 
 <div class="container-fluid main">
     <div class="row">
-        <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
+        <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12" th:if="${pagination != null}">
             <div>
-                <h2><span class="glyphicon glyphicon-list" aria-hidden="true"></span>发现</h2>
+                <h2><span class="glyphicon glyphicon-list" aria-hidden="true"></span> 发现</h2>
             </div>
             <hr>
             <div class="media" th:each="question : ${pagination.questions}">
@@ -27,7 +36,9 @@
                     </a>
                 </div>
                 <div class="media-body">
-                    <h4 class="media-heading" th:text="${question.title}"></h4>
+                    <h4 class="media-heading">
+                        <a th:href="@{'/question/'+${question.id}}" th:text="${question.title}"></a>
+                    </h4>
                     <span th:text="${question.description}"></span><br>
                     <span class="text-desc">
                         • <span th:text="${question.commentCount}"></span> 个回复

@@ -25,3 +25,48 @@ body{
     font-weight: normal;
     color: #999;
 }
+.profile-section{
+    margin-top: 15px;
+}
+.community-menu{
+    color: #999;
+    font-size: 13px;
+}
+.jumbotron{
+    margin-left: 200px;
+}
+.media-body{
+    padding-top: 10px;
+}
+.icon{
+    margin-right: 7px;
+    font-size: 15px;
+    margin-top: 5px;
+    cursor: pointer;
+}
+.icon:hover{
+    color: #499ef3;
+}
+.icon-active{
+    color: #499ef3;
+}
+.back{
+    float: right;
+    font-size: 8px;
+    color: #999;
+}
+.comments{
+    border-bottom: #999 1px solid;
+    padding-bottom: 8px;
+    padding-top: 5px;
+}
+.sub-comments{
+    border-radius: 5px;
+    margin-top: 10px;
+    border: 1px solid #eee;
+    padding-top: 15px;
+    margin-bottom: 15px;
+}
+.tag{
+    margin-right: 5px;
+}
